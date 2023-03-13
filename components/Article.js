@@ -1,5 +1,6 @@
 import React from 'react';
-import {Box, Link, Typography} from "@mui/material";
+import {Box, Typography} from "@mui/material";
+import Link from "next/link";
 
 
 const Article = ({item}) => {
@@ -13,7 +14,11 @@ const Article = ({item}) => {
         <article style={{marginTop:'2.5rem',marginBottom:'2.5rem'}}>
             <Box>
                 <Typography variant={"h3"} color="text.secondary" mb={'0.5rem'}>
-                    <Link underline="none" href={`/${url}`} color="text.secondary">
+                    <Link  href={{
+                        pathname: `/${url}`,
+                        query: {id:item.id},
+                    }}
+                     style={{color:'inherit',textDecoration:'none'}}>
                         {item.title}
                     </Link>
                 </Typography>
