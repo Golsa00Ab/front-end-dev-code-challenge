@@ -21,7 +21,7 @@ export default function Home(props) {
   )
 }
 export async function getStaticProps () {
-  const res = await axios.get("https://jsonplaceholder.typicode.com/posts");
+  const res = await axios.get("https://mocki.io/v1/1c3ebff6-9ffe-430b-8ba5-c08dcc8c17b2");
   const data=res.data
     const sortData=data.sort((a, b) => parseFloat(b.id) - parseFloat(a.id));
 
