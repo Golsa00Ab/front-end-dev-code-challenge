@@ -1,6 +1,7 @@
 import React from 'react';
 import {Box, Typography} from "@mui/material";
 import Link from "next/link";
+import moment from "moment";
 
 
 const Article = ({item}) => {
@@ -23,7 +24,7 @@ const Article = ({item}) => {
                     </Link>
                 </Typography>
                 <small style={{fontSize:'80%'}}>
-                    {`${'July 7, 2021'} • ️☕️ ${time} min read`}
+                    {`${moment(item.date).format('LL')} • ️☕️ ${time} min read`}
                 </small>
                 <Typography variant={"body1"}>
                     {item.body}
