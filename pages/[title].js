@@ -4,8 +4,8 @@ import HeaderDetail from "../components/layout/HeaderDetail";
 import axios from "axios";
 import {Typography} from "@mui/material";
 
-const Detail = ({data,ctx}) => {
-    console.log(ctx)
+const Detail = ({data}) => {
+
     const wpm = 225;
     const words = data.body.trim().split(/\s+/).length;
     const time = Math.ceil(words / wpm);
