@@ -3,12 +3,17 @@ import RootLayout from "../components/layout/RootLayout";
 import HeaderDetail from "../components/layout/HeaderDetail";
 import axios from "axios";
 import {Typography} from "@mui/material";
-
-const Detail = ({data}) => {
-
+import moment from "moment";
+import {useRouter} from "next/router";
+const readTime=(str)=>{
     const wpm = 225;
-    const words = data.body.trim().split(/\s+/).length;
+    const words = str.trim().split(/\s+/).length;
     const time = Math.ceil(words / wpm);
+    return time
+}
+const Detail = ({data,date}) => {
+    const router = useRouter()
+    // const item=router.query
 
     return (
         <RootLayout>
@@ -17,7 +22,7 @@ const Detail = ({data}) => {
                 {data.title}
             </Typography>
             <small style={{fontSize:'80%'}}>
-                {`July 7, 2021 • ☕️️ ${time} min read`}
+                {`${moment(date).format('LL')} • ☕️️${readTime(data.body)} min read`}
             </small>
             <Typography variant={"body1"} mt={'1.75rem'}>
                 {data.body}
@@ -34,6 +39,7 @@ export async function getServerSideProps(context) {
     return {
         props: {
             data,
+            date:context.query.date
         },
     };
 }

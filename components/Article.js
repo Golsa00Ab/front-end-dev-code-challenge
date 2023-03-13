@@ -20,7 +20,7 @@ const Article = ({item}) => {
                     {
                         router.push({
                             pathname: `/${url}`,
-                            query: {id:item.id,date:item.date}},`/${url}`)
+                            query: {id:item.id,date:item.date,title:item.title,body:item.body}},`/${url}`)
                     }
                     }
                      style={{color:'inherit',textDecoration:'none'}}>
